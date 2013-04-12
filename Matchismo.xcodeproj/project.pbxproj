@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F560BC017189E15007CD697 /* tile1_blank_268.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F560BBF17189E15007CD697 /* tile1_blank_268.png */; };
 		0FA243921717DC5900D783B3 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA243881717DC5900D783B3 /* PlayingCard.m */; };
 		0FA243931717DC5900D783B3 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA243891717DC5900D783B3 /* CardMatchingGame.m */; };
 		0FA243941717DC5900D783B3 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2438C1717DC5900D783B3 /* PlayingCardDeck.m */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F560BBF17189E15007CD697 /* tile1_blank_268.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile1_blank_268.png; sourceTree = "<group>"; };
 		0FA243881717DC5900D783B3 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 		0FA243891717DC5900D783B3 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
 		0FA2438A1717DC5900D783B3 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		0FBFBC771717782E00B0631E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F560BBF17189E15007CD697 /* tile1_blank_268.png */,
 				0FBFBC781717782E00B0631E /* Matchismo-Info.plist */,
 				0FBFBC791717782E00B0631E /* InfoPlist.strings */,
 				0FBFBC7C1717782E00B0631E /* main.m */,
@@ -197,6 +200,7 @@
 				0FBFBC851717782E00B0631E /* Default@2x.png in Resources */,
 				0FBFBC871717782E00B0631E /* Default-568h@2x.png in Resources */,
 				0FBFBC8A1717782E00B0631E /* MainStoryboard.storyboard in Resources */,
+				0F560BC017189E15007CD697 /* tile1_blank_268.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
