@@ -70,5 +70,13 @@
     self.statusLabel.text = self.game.statusOfLastFlip;
 }
 
+- (IBAction)deal
+{
+    self.flipCount = 0;
+    self.statusLabel.text = @"Touch the card to flip it.";
+    [self.game resetGame];
+    [self updateUI];
+}
+
 
 @end

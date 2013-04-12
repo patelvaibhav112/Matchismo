@@ -17,5 +17,5 @@
 - (Card *)cardAtIndex: (NSUInteger)index;
 @property (nonatomic,readonly) int score;
 @property (strong, nonatomic) NSString *statusOfLastFlip;
-
+- (void) resetGame;
 @end
