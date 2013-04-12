@@ -64,10 +64,14 @@
 #define MATCH_BONUS 4
 #define MISMATCH_PENALTY 2
 #define FLIP_COST 1
+#define MULTI_MATCH_BONUS 100
+#define MULTI_MATCH_PENALTY 4
 
 - (void) flipCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
+    NSMutableArray *openCards = [[NSMutableArray alloc]init];
+    
     if(!card.isUnplayable)
     {
         if(!card.isFaceUp)
@@ -78,19 +82,31 @@
             {
                 if(otherCard.isFaceUp && !otherCard.isUnplayable)
                 {
+                    [openCards addObject:otherCard];
+                    
                     int matchScore = [card match:@[otherCard]];
                     if(matchScore)
                     {
-                        otherCard.unplayable = YES;
-                        card.unplayable = YES;
+                        if(openCards.count > self.mode)
+                        {
+                            for(Card *openCard in openCards)
+                            {
+                                openCard.unplayable = YES;
+                                card.unplayable = YES;
+                            }
+                        }
                         self.score += matchScore * MATCH_BONUS;
                         self.statusOfLastFlip = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents, otherCard.contents, matchScore*MATCH_BONUS];
+                        if(openCards.count >1)
+                        self.score += matchScore * MULTI_MATCH_BONUS;
                     }
                     else
                     {
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
                         self.statusOfLastFlip = [NSString stringWithFormat:@"%@ & %@ don't Match %d point penalty",card.contents, otherCard.contents, MISMATCH_PENALTY];
+                        if(openCards.count > self.mode)
+                        self.score -= MULTI_MATCH_PENALTY;
                     }
                 }
             }

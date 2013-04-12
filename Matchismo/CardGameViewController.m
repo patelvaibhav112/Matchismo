@@ -86,10 +86,12 @@
     if(sender.isOn)
     {
         //tell model to turn on 3 card mode
+        self.game.mode = 1;
     }
     else
     {
         //tell model to turn on 2 card mode
+        self.game.mode = 0;
     }
 }
 
