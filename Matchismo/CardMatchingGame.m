@@ -71,7 +71,7 @@
 {
     Card *card = [self cardAtIndex:index];
     NSMutableArray *openCards = [[NSMutableArray alloc]init];
-    
+    NSString *openCardsContent = [[NSString alloc]init];
     if(!card.isUnplayable)
     {
         if(!card.isFaceUp)
@@ -93,20 +93,26 @@
                             {
                                 openCard.unplayable = YES;
                                 card.unplayable = YES;
+                                openCardsContent = [openCardsContent stringByAppendingString:openCard.contents];
                             }
                         }
                         self.score += matchScore * MATCH_BONUS;
                         self.statusOfLastFlip = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents, otherCard.contents, matchScore*MATCH_BONUS];
                         if(openCards.count >1)
-                        self.score += matchScore * MULTI_MATCH_BONUS;
+                        {
+                            self.score += matchScore * MULTI_MATCH_BONUS;
+                            self.statusOfLastFlip = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents, openCardsContent, matchScore*MULTI_MATCH_BONUS];
+                        }
                     }
                     else
                     {
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
-                        self.statusOfLastFlip = [NSString stringWithFormat:@"%@ & %@ don't Match %d point penalty",card.contents, otherCard.contents, MISMATCH_PENALTY];
+                        self.statusOfLastFlip = [NSString stringWithFormat:@"%@ & %@ don't Match %d point penalty",otherCard.contents, card.contents, MISMATCH_PENALTY];
                         if(openCards.count > self.mode)
-                        self.score -= MULTI_MATCH_PENALTY;
+                        {
+                            self.score -= MULTI_MATCH_PENALTY;
+                        }
                     }
                 }
             }
