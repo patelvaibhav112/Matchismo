@@ -61,6 +61,7 @@
     {
         if(!card.isFaceUp)
         {
+            self.statusOfLastFlip = [NSString stringWithFormat:@"Flipped up %@",card.contents];
             //see if flipping this card up creates a match
             for(Card *otherCard in self.cards)
             {
@@ -72,12 +73,13 @@
                         otherCard.unplayable = YES;
                         card.unplayable = YES;
                         self.score += matchScore * MATCH_BONUS;
+                        self.statusOfLastFlip = [NSString stringWithFormat:@"Matched %@ & %@ for %d points",card.contents, otherCard.contents, matchScore*MATCH_BONUS];
                     }
                     else
                     {
                         otherCard.faceUp = NO;
                         self.score -= MISMATCH_PENALTY;
-                        
+                        self.statusOfLastFlip = [NSString stringWithFormat:@"%@ & %@ don't Match %d point penalty",card.contents, otherCard.contents, MISMATCH_PENALTY];
                     }
                 }
             }
