@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *gameMode;
 @end
 
 @implementation CardGameViewController
@@ -53,13 +54,16 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score:%d",self.game.score];
     
-    
 }
 
 - (void)setFlipCount:(int)flipCount
 {
     _flipCount = flipCount;
     self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+    if(_flipCount > 0)
+        self.gameMode.enabled = NO;
+    else
+        self.gameMode.enabled = YES;
 }
 
 - (IBAction)flipCard:(UIButton *)sender
@@ -76,6 +80,17 @@
     self.statusLabel.text = @"Touch the card to flip it.";
     [self.game resetGame];
     [self updateUI];
+}
+- (IBAction)modeChanged:(UISwitch *)sender
+{
+    if(sender.isOn)
+    {
+        //tell model to turn on 3 card mode
+    }
+    else
+    {
+        //tell model to turn on 2 card mode
+    }
 }
 
 

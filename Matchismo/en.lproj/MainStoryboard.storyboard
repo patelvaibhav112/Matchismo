@@ -276,7 +276,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yzb-pr-Iep">
-                                <rect key="frame" x="186" y="419" width="114" height="21"/>
+                                <rect key="frame" x="192" y="424" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -290,7 +290,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UWm-s5-CyG">
-                                <rect key="frame" x="125" y="408" width="68" height="44"/>
+                                <rect key="frame" x="88" y="409" width="68" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Deal">
@@ -304,11 +304,19 @@
                                     <action selector="deal" destination="2" eventType="touchUpInside" id="eOe-QE-jKH"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="drl-lg-eJH">
+                                <rect key="frame" x="158" y="419" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="modeChanged:" destination="2" eventType="valueChanged" id="Vpb-ql-KG2"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="flipsLabel" destination="xGW-pe-reR" id="Kpu-RE-qo6"/>
+                        <outlet property="gameMode" destination="drl-lg-eJH" id="WHx-kJ-juc"/>
                         <outlet property="scoreLabel" destination="Yzb-pr-Iep" id="OnO-71-1J5"/>
                         <outlet property="statusLabel" destination="LmF-aU-n7C" id="VtA-gK-8My"/>
                         <outletCollection property="cardButtons" destination="n2t-iu-0ui" id="SA8-V7-mIj"/>
@@ -338,7 +346,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
             <relationships>
                 <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
+                <relationship kind="action" name="modeChanged:" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gameMode" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
